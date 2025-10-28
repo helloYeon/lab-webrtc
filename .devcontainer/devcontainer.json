@@ -1,0 +1,40 @@
+{
+  "name": "lab-webrtc-",
+  //   "dockerComposeFile": "..docker-compose.yml",
+  //   "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  //   "service": "app",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  // "mounts": [
+  //   "source=/Users/yeon/works/lab-webrtc/sub-folder,target=/workspace,type=bind"
+  // ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        // "MS-CEINTL.vscode-language-pack-ja",
+        // "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "[python]": {
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          },
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.formatOnSave": true,
+          "editor.formatOnType": true
+        }
+      }
+    }
+  },
+  "forwardPorts": [8000, 8765, 8888],
+  "remoteUser": "root",
+  "shutdownAction": "stopCompose"
+}

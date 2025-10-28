@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>WebRTC Local Mesh Demo</title>
+  <style>
+    video {
+      width: 45%;
+      margin: 10px;
+      border: 2px solid #ccc;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>WebRTC Mesh Demo</h1>
+  <video id="localVideo" autoplay muted playsinline></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <script src="client.js"></script>
+</body>
+</html>
