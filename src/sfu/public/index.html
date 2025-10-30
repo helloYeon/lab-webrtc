@@ -1,0 +1,38 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WebRTC SFU Demo</title>
+    <style>
+      video {
+        width: 45%;
+        margin: 10px;
+        border: 1px solid #ccc;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WebRTC SFU Demo</h1>
+    <video id="localVideo" autoplay muted playsinline></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+
+    <!-- Socket.IO クライアント -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+    <!-- mediasoup-client UMDビルド（グローバル変数として mediasoupClient を提供）-->
+    <script src="https://cdn.jsdelivr.net/npm/mediasoup-client@3.17.1/lib/index.min.js"></script>
+    <script>
+      window.mediasoupClient = window.mediasoupClient || window.mediasoup;
+    </script>
+
+    <!-- client.js を読み込む -->
+    <script src="client.js"></script>
+  </body>
+</html>

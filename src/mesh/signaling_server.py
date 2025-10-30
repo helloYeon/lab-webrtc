@@ -1,8 +1,10 @@
 # signaling_server.py
 import asyncio
+
 import websockets
 
 connected = set()
+
 
 async def handler(websocket):
     print("New client connected")
@@ -17,10 +19,12 @@ async def handler(websocket):
         connected.remove(websocket)
         print("Client disconnected")
 
+
 async def main():
     async with websockets.serve(handler, "localhost", 8765):
         print("Signaling server running at ws://localhost:8765")
         await asyncio.Future()  # 永久待機
+
 
 if __name__ == "__main__":
     asyncio.run(main())

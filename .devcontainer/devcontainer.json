@@ -17,6 +17,7 @@
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
+        "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries"
         // "MS-CEINTL.vscode-language-pack-ja",
         // "charliermarsh.ruff"
       ],
@@ -34,7 +35,7 @@
       }
     }
   },
-  "forwardPorts": [8000, 8765, 8888],
+  "forwardPorts": [8000, 8765, 8888,3000],
   "remoteUser": "root",
   "shutdownAction": "stopCompose"
 }

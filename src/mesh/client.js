@@ -1,20 +1,26 @@
+/** @format */
+
 const localVideo = document.getElementById("localVideo");
 const remoteVideo = document.getElementById("remoteVideo");
 const socket = new WebSocket("ws://localhost:8765");
 const peer = new RTCPeerConnection();
 
-navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(stream => {
-  localVideo.srcObject = stream;
-  stream.getTracks().forEach(track => peer.addTrack(track, stream));
-});
+navigator.mediaDevices
+  .getUserMedia({ video: true, audio: false })
+  .then((stream) => {
+    localVideo.srcObject = stream;
+    stream.getTracks().forEach((track) => peer.addTrack(track, stream));
+  });
 
-peer.ontrack = event => {
+peer.ontrack = (event) => {
   remoteVideo.srcObject = event.streams[0];
 };
 
-peer.onicecandidate = event => {
+peer.onicecandidate = (event) => {
   if (event.candidate) {
-    socket.send(JSON.stringify({ type: "candidate", candidate: event.candidate }));
+    socket.send(
+      JSON.stringify({ type: "candidate", candidate: event.candidate })
+    );
   }
 };
 
